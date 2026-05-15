@@ -51,7 +51,7 @@ String pageHeader(const String& title) {
   html += ".danger{background:#9b111e;border-color:#9b111e}";
   html += "</style></head><body><main>";
   html += "<h1>" + title + "</h1>";
-  html += "<p><a href='/'>Home</a> · <a href='/wifi'>Wi-Fi</a> · <a href='/schedule'>Schedule</a></p>";
+  html += "<p><a href='/'>Home</a> - <a href='/wifi'>Wi-Fi</a> - <a href='/schedule'>Schedule</a></p>";
   return html;
 }
 
@@ -63,7 +63,7 @@ String blindCard(BlindMotor& blind) {
   html += "<section>";
   html += "<h2>" + String(blind.label) + " blind</h2>";
   html += "<p><b>Current position:</b> " + String(pos) + "</p>";
-  html += "<p><b>Up position:</b> " + String(blind.upPosition) + " · <b>Closed position:</b> " + String(blind.closedPosition) + "</p>";
+  html += "<p><b>Up position:</b> " + String(blind.upPosition) + " - <b>Closed position:</b> " + String(blind.closedPosition) + "</p>";
   html += "<form class='row' method='post' action='/action'>";
   html += "<input type='hidden' name='blind' value='" + String(blind.id) + "'>";
   html += "<button name='cmd' value='open'>Open</button>";
