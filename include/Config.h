@@ -23,9 +23,9 @@ constexpr const char* kMdnsHostname = "blinds";
 constexpr const char* kMdnsAddress = "blinds.local";
 constexpr unsigned long kConfigApDurationMs = 5UL * 60UL * 1000UL;
 
-constexpr float kDefaultMaxSpeed = 300.0F;
+constexpr float kDefaultMaxSpeed = 250.0F;
 constexpr float kDefaultAcceleration = 100.0F;
-constexpr long kDefaultJogSteps = 100;
+constexpr long kDefaultJogSteps = 500;
 constexpr unsigned long kPositionSaveIntervalMs = 2000;
 constexpr unsigned long kScheduleCheckIntervalMs = 15000;
 
