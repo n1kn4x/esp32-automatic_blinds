@@ -46,16 +46,16 @@ automatic-blinds/
 
 ## Pin mapping
 Left motor:
-- IN1 = GPIO 4
-- IN2 = GPIO 18
-- IN3 = GPIO 19
-- IN4 = GPIO 21
-
-Right motor:
 - IN1 = GPIO 27
 - IN2 = GPIO 26
 - IN3 = GPIO 25
 - IN4 = GPIO 33
+
+Right motor:
+- IN1 = GPIO 4
+- IN2 = GPIO 18
+- IN3 = GPIO 19
+- IN4 = GPIO 21
 
 `AccelStepper` pin order is preserved as: **IN1, IN3, IN2, IN4**.
 
