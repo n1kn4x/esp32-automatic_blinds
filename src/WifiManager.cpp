@@ -1,13 +1,17 @@
 #include "WifiManager.h"
 
 #include <WiFi.h>
+#include <ESPmDNS.h>
 #include <time.h>
 
 #include "Config.h"
 #include "Storage.h"
 
 bool apActive = false;
-namespace { unsigned long apStartedAt = 0; }
+namespace {
+unsigned long apStartedAt = 0;
+bool mdnsStarted = false;
+}
 
 void startConfigAP() {
   WiFi.mode(WIFI_AP_STA);
@@ -30,10 +34,27 @@ void stopConfigAPIfExpired() {
 void connectConfiguredWifi() {
   if (selfHostedMode) {
     WiFi.mode(WIFI_AP);
+    mdnsStarted = false;
     return;
   }
   if (wifiSsid.length() == 0) return;
+  WiFi.setHostname(Config::kMdnsHostname);
   WiFi.begin(wifiSsid.c_str(), wifiPassword.c_str());
+}
+
+void updateMdns() {
+  if (WiFi.status() != WL_CONNECTED) {
+    if (mdnsStarted) {
+      MDNS.end();
+      mdnsStarted = false;
+    }
+    return;
+  }
+
+  if (!mdnsStarted && MDNS.begin(Config::kMdnsHostname)) {
+    MDNS.addService("http", "tcp", Config::kWebServerPort);
+    mdnsStarted = true;
+  }
 }
 
 void setupTimeIfConnected() {
@@ -56,6 +77,8 @@ String wifiStatusHtml() {
   html += wifiSsid;
   html += "</p><p><b>Station IP:</b> ";
   html += WiFi.status() == WL_CONNECTED ? WiFi.localIP().toString() : "-";
+  html += "</p><p><b>Hostname:</b> ";
+  html += Config::kMdnsAddress;
   html += "</p><p><b>Self-hosted mode:</b> ";
   html += selfHostedMode ? "enabled" : "disabled";
   html += "</p>";
