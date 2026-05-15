@@ -7,4 +7,5 @@ void startConfigAP();
 void stopConfigAPIfExpired();
 void connectConfiguredWifi();
 void setupTimeIfConnected();
+void updateMdns();
 String wifiStatusHtml();

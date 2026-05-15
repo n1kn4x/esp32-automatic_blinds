@@ -18,6 +18,7 @@ void setup() {
   loadSchedule();
   startConfigAP();
   connectConfiguredWifi();
+  updateMdns();
   setupRoutes();
   setupTimeIfConnected();
   Serial.println("Automatic blinds started");
@@ -33,6 +34,7 @@ void loop() {
   stopConfigAPIfExpired();
   static bool timeConfigured = false;
   if (WiFi.status() == WL_CONNECTED && !timeConfigured) { setupTimeIfConnected(); timeConfigured = true; }
+  updateMdns();
   handleSchedule();
   saveCurrentPositionsIfNeeded();
 }

@@ -19,6 +19,8 @@ constexpr int kRightIn4 = 33;
 
 constexpr const char* kApSsid = "Automatic-Blinds-Setup";
 constexpr const char* kApPassword = "blinds1234";
+constexpr const char* kMdnsHostname = "blinds";
+constexpr const char* kMdnsAddress = "blinds.local";
 constexpr unsigned long kConfigApDurationMs = 5UL * 60UL * 1000UL;
 
 constexpr float kDefaultMaxSpeed = 300.0F;
