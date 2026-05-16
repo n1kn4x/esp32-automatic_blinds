@@ -6,16 +6,16 @@ namespace Config {
 constexpr int kMotorInterfaceType = 4;
 
 // Left blind motor pins
-constexpr int kLeftIn1 = 4;
-constexpr int kLeftIn2 = 18;
-constexpr int kLeftIn3 = 19;
-constexpr int kLeftIn4 = 21;
+constexpr int kLeftIn1 = 27;
+constexpr int kLeftIn2 = 26;
+constexpr int kLeftIn3 = 25;
+constexpr int kLeftIn4 = 33;
 
 // Right blind motor pins
-constexpr int kRightIn1 = 27;
-constexpr int kRightIn2 = 26;
-constexpr int kRightIn3 = 25;
-constexpr int kRightIn4 = 33;
+constexpr int kRightIn1 = 4;
+constexpr int kRightIn2 = 18;
+constexpr int kRightIn3 = 19;
+constexpr int kRightIn4 = 21;
 
 constexpr const char* kApSsid = "Automatic-Blinds-Setup";
 constexpr const char* kApPassword = "blinds1234";
